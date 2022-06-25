@@ -32,7 +32,7 @@ app.get('/api/comments', (req, res) => {
         .then((data) => {
             res.send({
                 success: true,
-                data: data.sort((a,b)=>{b.date -  a.date})
+                data: data.sort((a,b)=>{return b.date -  a.date})
             });
         }).catch((err) => {
             res.send({
