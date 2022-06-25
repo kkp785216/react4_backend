@@ -18,7 +18,6 @@ app.get('/api/posts', (req, res) => {
             res.send({
                 success: true,
                 data: data
-                // data: data.sort((a,b)=>{return a.date - b.date})
             });
         }).catch((err) => {
             res.send({
@@ -29,11 +28,11 @@ app.get('/api/posts', (req, res) => {
 });
 
 app.get('/api/comments', (req, res) => {
-    getComments(dbr)
+    getComments(dbr, req.query.url)
         .then((data) => {
             res.send({
                 success: true,
-                data: data
+                data: data.sort((a,b)=>{a.date -  b.date})
             });
         }).catch((err) => {
             res.send({
