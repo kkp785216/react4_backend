@@ -48,7 +48,8 @@ app.post('/api/comments', (req, res) => {
         res.send({
             success: true,
             msg: "your response has been saved",
-            _id: data
+            _id: data,
+            name: req.query.name
         });
     }).catch((err) => {
         res.send({
